@@ -17,7 +17,7 @@ import java.util.List;
 public class MarvelRequestController {
     private final MarvelRequestService marvelRequestService;
 
-    @GetMapping(path = "/characters")
+    @GetMapping(path = "/api/characters")
     public Mono<ResponseEntity<String>> GetCharacters() {
         return marvelRequestService.getAllCharacters()
                 .map(ResponseEntity::ok)
