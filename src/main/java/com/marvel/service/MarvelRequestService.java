@@ -29,7 +29,7 @@ public class MarvelRequestService {
 
     public Mono<String> getAllCharacters() {
         String url = "characters?apikey=bf300db1f72ad8ed3885f148bddfe897&ts=1&hash=59c4eeb53e37e863220b75af0bc72505";
-        TimeAndServiceLog("characters");
+        TimeAndServiceLog("characters list");
 
         return webClient
                 .get()
@@ -41,6 +41,17 @@ public class MarvelRequestService {
 
     public List<MarvelRequest> getAllMarvelRequestsLogs() {
         return marvelRequestRepository.findAll();
+    }
+
+    public Mono<String> getCharacterById(Integer characterId) {
+        String url = "characters/" + characterId + "?apikey=bf300db1f72ad8ed3885f148bddfe897&ts=1&hash=59c4eeb53e37e863220b75af0bc72505";
+        TimeAndServiceLog("characters by id");
+        return webClient
+                .get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(String.class)
+                .map(jsonString -> gson.toJson(gson.fromJson(jsonString, Object.class)));
     }
 
 }
