@@ -2,6 +2,7 @@ package com.marvel.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,6 +20,6 @@ public class MarvelRequest {
     @Column(name = "timestamp", nullable = false)
     private LocalDateTime timestamp;
 
-    @Column(name = "api_route", nullable = false)
-    private String apiRoute;
+    @Column(name = "service", nullable = false)
+    private String service;
 }
