@@ -32,7 +32,7 @@ public class MarvelRequestController {
     }
 
     @GetMapping(path = "/api/characters/{idCharacters}")
-    public Mono<ResponseEntity<String>> GetCharacterById(@PathVariable("idCharacters") final Integer idCharacters) throws Exception {
+    public Mono<ResponseEntity<String>> GetCharacterById(@PathVariable("idCharacters") final Integer idCharacters) {
         return marvelRequestService.getCharacterById(idCharacters)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
