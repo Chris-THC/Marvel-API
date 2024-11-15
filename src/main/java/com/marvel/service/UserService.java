@@ -1,6 +1,5 @@
 package com.marvel.service;
 
-import com.marvel.entity.MarvelRequest;
 import com.marvel.entity.UserEntity;
 import com.marvel.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +14,9 @@ public class UserService {
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public UserEntity getUserByName(final String userName) {
+        return userRepository.findByUserName(userName);
     }
 }
