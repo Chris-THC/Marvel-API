@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers("/marvel/login").permitAll()
+                                .requestMatchers("marvel/login").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->

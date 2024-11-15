@@ -1,5 +1,6 @@
 package com.marvel.restController;
 
+import com.marvel.dto.UserDTO;
 import com.marvel.entity.UserEntity;
 import com.marvel.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/marvel")
 public class UserRestController {
     private final UserService userService;
 
-    @GetMapping(path = "")
-    public ResponseEntity<List<UserEntity>> getAllMarvelRequestsLogs() {
-        final List<UserEntity> MarvelLogList = userService.getAllUsers();
+    @GetMapping(path = "/users")
+    public ResponseEntity<List<UserDTO>> getAllMarvelRequestsLogs() {
+        final List<UserDTO> MarvelLogList = userService.getAllUsers();
         return ResponseEntity.ok().body(MarvelLogList);
     }
 
