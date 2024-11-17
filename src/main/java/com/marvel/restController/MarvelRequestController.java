@@ -37,4 +37,11 @@ public class MarvelRequestController {
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
+
+    @GetMapping(path = "/api/series/{idSeries}")
+    public Mono<ResponseEntity<String>> GetSeriesById(@PathVariable("idSeries") final Integer idSeries) {
+        return marvelRequestService.getSeriesById(idSeries)
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
 }
